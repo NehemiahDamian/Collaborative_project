@@ -1,9 +1,21 @@
+@font-face {
+  font-family: Ubuntu;
+  src: url("../src/assets/fonts/Ubuntu-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Gothic;
+  src: url("../src/assets/fonts/LeagueGothic-Regular.ttf") format("truetype");
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-ubuntu: "Ubuntu", sans-serif;
+  --font-gothic: "Gothic", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -116,6 +128,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    @apply bg-amber-50;
+    @apply bg-[#FAF9F5];
   }
 }

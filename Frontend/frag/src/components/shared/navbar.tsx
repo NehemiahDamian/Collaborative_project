@@ -3,7 +3,7 @@ import { navLeftList, navRightList } from "@/data/navbar";
 
 export const Navbar = () => {
   return (
-    <header className="bg-amber-50 border-b-2 border-black">
+    <header className="bg-[#FAF9F5] border-b-2 border-black">
       <div className="flex items-center justify-between p-4">
         <div className="flex items-center gap-4 px-4">
           {navLeftList.map((item) => (
