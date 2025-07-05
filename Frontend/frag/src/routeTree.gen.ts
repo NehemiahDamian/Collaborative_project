@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FragranceIndexRouteImport } from './routes/fragrance/index'
+import { Route as FragranceFragranceIdRouteImport } from './routes/fragrance/$fragranceId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FragranceIndexRoute = FragranceIndexRouteImport.update({
+  id: '/fragrance/',
+  path: '/fragrance/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FragranceFragranceIdRoute = FragranceFragranceIdRouteImport.update({
+  id: '/fragrance/$fragranceId',
+  path: '/fragrance/$fragranceId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/fragrance/$fragranceId': typeof FragranceFragranceIdRoute
+  '/fragrance': typeof FragranceIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/fragrance/$fragranceId': typeof FragranceFragranceIdRoute
+  '/fragrance': typeof FragranceIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/fragrance/$fragranceId': typeof FragranceFragranceIdRoute
+  '/fragrance/': typeof FragranceIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/fragrance/$fragranceId' | '/fragrance'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/fragrance/$fragranceId' | '/fragrance'
+  id: '__root__' | '/' | '/fragrance/$fragranceId' | '/fragrance/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FragranceFragranceIdRoute: typeof FragranceFragranceIdRoute
+  FragranceIndexRoute: typeof FragranceIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fragrance/': {
+      id: '/fragrance/'
+      path: '/fragrance'
+      fullPath: '/fragrance'
+      preLoaderRoute: typeof FragranceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fragrance/$fragranceId': {
+      id: '/fragrance/$fragranceId'
+      path: '/fragrance/$fragranceId'
+      fullPath: '/fragrance/$fragranceId'
+      preLoaderRoute: typeof FragranceFragranceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FragranceFragranceIdRoute: FragranceFragranceIdRoute,
+  FragranceIndexRoute: FragranceIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
