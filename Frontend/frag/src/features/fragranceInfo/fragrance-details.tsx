@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Link } from "@tanstack/react-router";
 import type { Fragrance } from "@/lib/fragrance";
+import { YouMayAlsoLike } from "./you-may-also-like";
 
 interface FragranceDetailsProps {
   fragrance: Fragrance;
@@ -51,7 +52,7 @@ export const FragranceDetails = ({ fragrance }: FragranceDetailsProps) => {
               <img
                 src={fragrance.image}
                 alt="fragrance"
-                className="w-[900px] h-[900px] object-cover rounded"
+                className="w-full h-138 object-contain rounded"
               />
             </div>
           </Card>
@@ -62,7 +63,7 @@ export const FragranceDetails = ({ fragrance }: FragranceDetailsProps) => {
                 <img
                   src={fragrance.image}
                   alt="fragrance"
-                  className="w-[170px] h-[170px] object-cover rounded"
+                  className="w-full h-22 object-contain rounded"
                 />
               </div>
             </Card>
@@ -71,7 +72,7 @@ export const FragranceDetails = ({ fragrance }: FragranceDetailsProps) => {
                 <img
                   src={fragrance.image}
                   alt="fragrance"
-                  className="w-[170px] h-[170px] object-cover rounded"
+                  className="w-full h-22 object-contain rounded"
                 />
               </div>
             </Card>
@@ -80,7 +81,7 @@ export const FragranceDetails = ({ fragrance }: FragranceDetailsProps) => {
                 <img
                   src={fragrance.image}
                   alt="fragrance"
-                  className="w-[170px] h-[170px] object-cover rounded"
+                  className="w-full h-22 object-contain rounded"
                 />
               </div>
             </Card>
@@ -148,6 +149,10 @@ export const FragranceDetails = ({ fragrance }: FragranceDetailsProps) => {
             </CardContent>
           </Card>
         </div>
+      </div>
+
+      <div className="mt-[200px]">
+        <YouMayAlsoLike />
       </div>
     </>
   );

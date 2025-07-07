@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FragranceIndexRouteImport } from './routes/fragrance/index'
+import { Route as BrandsIndexRouteImport } from './routes/brands/index'
 import { Route as FragranceFragranceIdRouteImport } from './routes/fragrance/$fragranceId'
+import { Route as BrandsBrandsIdRouteImport } from './routes/brands/$brandsId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,39 +25,73 @@ const FragranceIndexRoute = FragranceIndexRouteImport.update({
   path: '/fragrance/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandsIndexRoute = BrandsIndexRouteImport.update({
+  id: '/brands/',
+  path: '/brands/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FragranceFragranceIdRoute = FragranceFragranceIdRouteImport.update({
   id: '/fragrance/$fragranceId',
   path: '/fragrance/$fragranceId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandsBrandsIdRoute = BrandsBrandsIdRouteImport.update({
+  id: '/brands/$brandsId',
+  path: '/brands/$brandsId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/brands/$brandsId': typeof BrandsBrandsIdRoute
   '/fragrance/$fragranceId': typeof FragranceFragranceIdRoute
+  '/brands': typeof BrandsIndexRoute
   '/fragrance': typeof FragranceIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/brands/$brandsId': typeof BrandsBrandsIdRoute
   '/fragrance/$fragranceId': typeof FragranceFragranceIdRoute
+  '/brands': typeof BrandsIndexRoute
   '/fragrance': typeof FragranceIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/brands/$brandsId': typeof BrandsBrandsIdRoute
   '/fragrance/$fragranceId': typeof FragranceFragranceIdRoute
+  '/brands/': typeof BrandsIndexRoute
   '/fragrance/': typeof FragranceIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/fragrance/$fragranceId' | '/fragrance'
+  fullPaths:
+    | '/'
+    | '/brands/$brandsId'
+    | '/fragrance/$fragranceId'
+    | '/brands'
+    | '/fragrance'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/fragrance/$fragranceId' | '/fragrance'
-  id: '__root__' | '/' | '/fragrance/$fragranceId' | '/fragrance/'
+  to:
+    | '/'
+    | '/brands/$brandsId'
+    | '/fragrance/$fragranceId'
+    | '/brands'
+    | '/fragrance'
+  id:
+    | '__root__'
+    | '/'
+    | '/brands/$brandsId'
+    | '/fragrance/$fragranceId'
+    | '/brands/'
+    | '/fragrance/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BrandsBrandsIdRoute: typeof BrandsBrandsIdRoute
   FragranceFragranceIdRoute: typeof FragranceFragranceIdRoute
+  BrandsIndexRoute: typeof BrandsIndexRoute
   FragranceIndexRoute: typeof FragranceIndexRoute
 }
 
@@ -75,6 +111,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FragranceIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brands/': {
+      id: '/brands/'
+      path: '/brands'
+      fullPath: '/brands'
+      preLoaderRoute: typeof BrandsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fragrance/$fragranceId': {
       id: '/fragrance/$fragranceId'
       path: '/fragrance/$fragranceId'
@@ -82,12 +125,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FragranceFragranceIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brands/$brandsId': {
+      id: '/brands/$brandsId'
+      path: '/brands/$brandsId'
+      fullPath: '/brands/$brandsId'
+      preLoaderRoute: typeof BrandsBrandsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BrandsBrandsIdRoute: BrandsBrandsIdRoute,
   FragranceFragranceIdRoute: FragranceFragranceIdRoute,
+  BrandsIndexRoute: BrandsIndexRoute,
   FragranceIndexRoute: FragranceIndexRoute,
 }
 export const routeTree = rootRouteImport
