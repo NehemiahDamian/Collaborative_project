@@ -5,16 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Breadcrumb,
-  // BreadcrumbEllipsis,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Link } from "@tanstack/react-router";
+import { PageStepper } from "@/components/shared/page-stepper";
 import type { Fragrance } from "@/lib/fragrance";
 import { YouMayAlsoLike } from "./you-may-also-like";
 
@@ -25,25 +16,7 @@ interface FragranceDetailsProps {
 export const FragranceDetails = ({ fragrance }: FragranceDetailsProps) => {
   return (
     <>
-      <div className="container mx-auto px-4 py-8">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/">Home</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Fragrance</BreadcrumbPage>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{fragrance.name}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </div>
+      <PageStepper brands={fragrance.brand} fragrance={fragrance.name} />
 
       <div className="container mx-auto p-4 flex justify-center gap-6">
         <div>

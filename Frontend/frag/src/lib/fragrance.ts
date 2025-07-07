@@ -1,4 +1,4 @@
-import { images, brandsLogo } from "@/constants";
+import { images, brandsLogo, azzaroFragrances } from "@/constants";
 
 export interface Fragrance {
   id: string;
@@ -16,6 +16,13 @@ export interface brandsLogo {
   id: string;
   name: string;
   image: string;
+  bgColor?: string;
+}
+
+export interface AzzaroFragrance {
+  id: string;
+  name?: string;
+  image?: string;
 }
 
 export const fragrances: Fragrance[] = [
@@ -73,11 +80,13 @@ export const brands: brandsLogo[] = [
     id: "4",
     name: "Arabian Oud",
     image: brandsLogo.arabianOud,
+    bgColor: "bg-black",
   },
   {
     id: "5",
     name: "Azzaro",
     image: brandsLogo.azzaro,
+    bgColor: "bg-black",
   },
   {
     id: "6",
@@ -98,11 +107,13 @@ export const brands: brandsLogo[] = [
     id: "9",
     name: "Bvlgari",
     image: brandsLogo.bvlgari,
+    bgColor: "bg-black",
   },
   {
     id: "10",
     name: "Byredo",
     image: brandsLogo.byredo,
+    bgColor: "bg-black",
   },
   {
     id: "11",
@@ -113,6 +124,7 @@ export const brands: brandsLogo[] = [
     id: "12",
     name: "Cartier",
     image: brandsLogo.cartier,
+    bgColor: "bg-black",
   },
   {
     id: "13",
@@ -123,6 +135,7 @@ export const brands: brandsLogo[] = [
     id: "14",
     name: "Christian Louboutin",
     image: brandsLogo.christianLouboutin,
+    bgColor: "bg-black",
   },
   {
     id: "15",
@@ -148,16 +161,19 @@ export const brands: brandsLogo[] = [
     id: "19",
     name: "Dior",
     image: brandsLogo.dior,
+    bgColor: "bg-black",
   },
   {
     id: "20",
     name: "Dolce & Gabbana",
     image: brandsLogo.dolceGabbana,
+    bgColor: "bg-black",
   },
   {
     id: "21",
     name: "Dunhill",
     image: brandsLogo.dunhill,
+    bgColor: "bg-black",
   },
   {
     id: "22",
@@ -168,6 +184,7 @@ export const brands: brandsLogo[] = [
     id: "23",
     name: "Ex Nihilo",
     image: brandsLogo.exNihili,
+    bgColor: "bg-black",
   },
   {
     id: "24",
@@ -178,10 +195,34 @@ export const brands: brandsLogo[] = [
     id: "25",
     name: "Giorgio Armani",
     image: brandsLogo.armani,
+    bgColor: "bg-black",
   },
   {
     id: "26",
     name: "BDK Parfums",
     image: brandsLogo.bdk,
+  },
+];
+
+export const azzaroCollection: AzzaroFragrance[] = [
+  {
+    id: "Azzaro Chrome",
+    image: azzaroFragrances.azzaroChrome,
+  },
+  {
+    id: "Azzaro Pour Homme",
+    image: azzaroFragrances.azzaroPourHomme,
+  },
+  {
+    id: "Azzaro The Most Wanted Parfum",
+    image: azzaroFragrances.azzaroWantedParfum,
+  },
+  {
+    id: "Azzaro The Most Wanted",
+    image: azzaroFragrances.azzaroTheMostWanted,
+  },
+  {
+    id: "Azzaro Wanted by Night",
+    image: azzaroFragrances.azzaroTheMostWantedByNight,
   },
 ];
