@@ -8,8 +8,8 @@ import { footerText } from "@/data/footer";
 export const Footer = () => {
   return (
     <footer className="bg-[#222229] text-white py-8 m-0 p-0">
-      <div className="container mx-auto grid grid-cols-[2.2fr_1.2fr_1fr] gap-8 px-4 pt-4">
-        <div className="w-[350px]">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2.2fr_1.2fr_1fr] gap-8 px-4 pt-4">
+        <div className="w-full max-w-[350px]">
           <h1 className="font-gothic uppercase font-medium text-2xl mb-3">
             {footerText.newsletter.heading}
           </h1>
@@ -59,7 +59,7 @@ export const Footer = () => {
             ))}
           </ul>
         </div>
-        <div>
+        <div className="md:col-span-2 lg:col-span-1">
           <h1 className="font-gothic font-medium text-2xl uppercase mb-3">
             {footerText.socialsHeading}
           </h1>
@@ -92,10 +92,10 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="relative text-center leading-[0.85] m-0 p-0 mt-8">
+      <div className="relative text-center leading-[0.85] m-0 p-0 mt-8 overflow-x-auto">
         <Separator className="my-1" />
-        <div className="relative inline-block w-full">
-          <h1 className="font-ubuntu font-medium text-[450px] relative z-10">
+        <div className="relative inline-block w-full min-w-[320px]">
+          <h1 className="font-ubuntu font-medium text-[80vw] md:text-[250px] lg:text-[450px] relative z-10 whitespace-nowrap">
             {footerText.branding.title}
           </h1>
           <div className="pointer-events-none absolute top-0 left-0 h-full w-1/4 bg-gradient-to-r from-[#222229] to-transparent z-20" />
@@ -104,11 +104,10 @@ export const Footer = () => {
         <Separator className="my-1" />
       </div>
 
-      <div className="container mx-auto grid grid-cols-[2.2fr_1.2fr_1fr] gap-8 px-4">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2.2fr_1.2fr_1fr] gap-8 px-4 mt-4">
         <div>
           <p>{footerText.branding.copyright}</p>
         </div>
-        {/* TODO: add language selection component */}
         <div>Language</div>
         <div>Back to up</div>
       </div>
