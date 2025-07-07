@@ -34,6 +34,13 @@ import fragranceDuBois from "@/assets/img/brands/Fragrance-Du-Bois.jpg";
 import armani from "@/assets/img/brands/Giorgio-Armani-Fragrances-pspy67xv76sz0yr1jya3xu4czz8ki7ku0cr2b4zwn4.png";
 import bdk from "@/assets/img/brands/nobilis-group-BDK-Parfums-logo-portfolio-page-300x221.png";
 
+// Azzaro
+import azzaroChrome from "@/assets/img/azzaro/azzaro-chrome.png";
+import azzaroPourHomme from "@/assets/img/azzaro/azzaro-pour-homme.png";
+import azzaroWantedParfum from "@/assets/img/azzaro/azzaro-the-most-wanted-parfum.png";
+import azzaroTheMostWanted from "@/assets/img/azzaro/azzaro-the-most-wanted.png";
+import azzaroTheMostWantedByNight from "@/assets/img/azzaro/Azzaro-Wanted-by-Night.png";
+
 export const images = {
   modelFrag,
   ysl,
@@ -71,4 +78,12 @@ export const brandsLogo = {
   fragranceDuBois,
   armani,
   bdk,
+};
+
+export const azzaroFragrances = {
+  azzaroChrome,
+  azzaroPourHomme,
+  azzaroWantedParfum,
+  azzaroTheMostWanted,
+  azzaroTheMostWantedByNight,
 };
